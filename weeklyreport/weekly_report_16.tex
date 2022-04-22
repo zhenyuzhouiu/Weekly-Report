@@ -1,0 +1,195 @@
+
+\title{Weekly Report (09/04-15/04)} 
+\author{ZHOU, Zhenyu}
+\date{\today}
+\maketitle
+
+\section{Objective}
+
+To improve finger knuckle neural network matching accuracy, I have tried a lot of different model architecture, for example, transformer encoder module, convolution large kernel, and so on. However, the RFN is still the best feature extraction model that can get high matching accuracy on different finger knuckle database. Meanwhile, I also change the loss function a little based on the original soft shifted triplet loss function. Using the quadruplet loss function, it is not better than triplet loss function after comparison. As for the comparison, I tried RFN-128 model with both of them, and found the triplet loss function is better than quadruplet loss.
+
+\vspace{10pt}
+
+This week, I mainly trained RFN-128, DeConvRFN-128 (change the normal convolution layer with deformable convolution layer of RFN) and EfficientNet with whole image translation and rotation. Because EfficientNet can easily fit on different input image size with different model width and depth.
+
+ 
+\section{Network training with Whole Image Translation and Rotation}
+
+From previous experiment, the image blocks shifted and rotation will cost a lot of time on running the evaluation protocol. As for the Hand Dorsal Image Database, it has 712 subjects and each subject have 5 finger knuckle samples. When I did evaluation protocol on the database, I had waited a whole day, but it still cannot get the matching matrix to get 712x4 genuine matching score and 711x712x4 imposter matching score. And the performance with image block shifted and rotation based on RFN-128 just is enhanced very little. And last reason why I stop using it is that the image blocks shifted and rotation MSE cannot be differentiated.
+
+\vspace{10pt}
+
+Then I choose to use whole image rotation and translation.
+
+\subsection{Back Propagation of Whole Image Translation and Rotation}
+Because I just add rotation on the feature maps based on the soft shifted triplet loss function (Liu, Yang, and Ajay Kumar. "Contactless palm-print identification using deeply learned residual features." IEEE Transactions on Biometrics, Behavior, and Identity Science 2.2 (2020): 172-181.). So my back propagation process is similar with it.
+
+\vspace{10pt}
+
+Because the loss is still use the triplet loss function, so the loss equation can be written as Equation \ref{sumloss}.
+
+\begin{equation}
+	\begin{aligned}
+		Loss = \frac{1}{N}\sum_{i}^{N}[L(F(I_{i}^{a}),F(I_{i}^{p}))-L(F(I_{i}^{a}),F(I_{i}^{m})) + m]_{+}
+	\end{aligned}
+	\label{sumloss}
+\end{equation}
+
+As for the $L()$ function, it is used to calculate the minimal value after shifting and rotating.
+\begin{equation}
+	\begin{aligned}
+		L(F_1, F_2) = \mathop{min}\limits_{-Ws{\leq}w{\leq}Ws, -Hs{\leq}h{\leq}Hs, {-\theta}{\leq}a{\leq}{\theta}}{D_{w,h,a}(F_1, F_2)}
+	\end{aligned}
+\end{equation}
+And the $D()$ is to calculate the MSE of two input feature maps, just as show as below.
+\begin{equation}
+	\begin{aligned}
+		D_{w,h,a}(F_1, F_2) = \frac{1}{|C_{w,h,a}|}\sum_{(x,y){\in}C_{w,h,a}}(F_1^{(w,h,a)}[x,y] - F_2[x,y])^2
+	\end{aligned}
+\end{equation}
+In terms of $C_{w,h,a}$, it represents the common region between two feature maps after shifting along x-axis with w, shifting along y-axis with h, and rotating with a. In this kind of situation, we assume that we shift and rotate anchor $w_{ap}, h_{ap}, a_{ap}$ with positive sample, and shift and rotate anchor $w_{an}, h_{an}, a_{an}$ with negative sample can get minimal MSE. Then the partial differentiation of the loss function with respect to each variable can be written as follows: 
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^p}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{ap}, h_{ap}, a_{ap}}}{\ }or{\ }Loss = 0 \\
+			\frac{-2(F_i^a[[x_{w_{ap}}, y_{h_{ap}}]*M(a_{ap})]-F_i^p[x,y])}{N|C_{w_{ap},h_{ap},a_{ap}}|},otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+The $M(a_{ap})$ is the rotation matrix:
+
+$$\begin{bmatrix}
+	cos(rot(a_{ap})) & -sin(rot(a_{ap})) \\
+	sin(rot(a_{ap})) & cos(rot(a_{ap}))
+\end{bmatrix}$$
+
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^n}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{an}, h_{an}, a_{an}}}{\ }or{\ }Loss = 0 \\
+			\frac{-2(F_i^a[[x_{w_{an}}, y_{h_{an}}]*M(a_{an})]-F_i^n[x,y])}{N|C_{w_{an},h_{an},a_{an}}|}, otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+The $M(a_{an})$ is the rotation matrix:
+
+$$\begin{bmatrix}
+	cos(rot(a_{an})) & -sin(rot(a_{an})) \\
+	sin(rot(a_{an})) & cos(rot(a_{an}))
+\end{bmatrix}$$
+
+
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^a[x,y]}} = -\frac{\partial{Loss}}{\partial{F_i^p[[x-w_{ap}, y-h_{ap}]*M(-a_{ap})]}} + \\
+		 \frac{\partial{Loss}}{\partial{F_i^n[[x-w_{an}, y-h_{an}]*M(-a_{an})]}}
+	\end{aligned}
+\end{equation}
+
+
+
+\section{Experiments and Conclusions}
+
+The RFN-128 with shifted triplet loss is the baseline, and I also trained RFN-128, DeConvRFN-128, EfficientNet with whole image shifted and rotated. As for the EfficientNet, it has 9 stages in totally, the 9th stage is classification task with FC layer, so I replace it with convolution layer for output feature maps. Meanwhile, I delete the stage7 and stage8, and change stage3 and stage4 with stride 1. Firstly, I trained these model on Finger Knuckle Database V1, and then fine-tuning on the rest database. And when I trained model with shifted triplet loss function and whole image shifted and rotation, the shift parameter of them are 3 pixels and 5 angle.
+
+\subsection{Finger Knuckle Database V3 with deformation}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/fkv3-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/fkv3-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+\vspace{10pt}
+
+From above figure, the WRS means whole image rotation and shift, and the WS is the whole image shift (just the soft shifted triplet loss). We can see that the RFN-128-WRS (dark curve) is the best, and followed by RFN-128-WS. For example, when the false accept rate is $10^-4$, the genuine accept rate of RFN-128-WRS and RFN-128-WS is about 0.6 and 0.54, respectively. The DeConvRFN and EfficientNet are ranked third and fourth, respectively. 
+
+\vspace{10pt}
+Based on the best RFN-128-WRS model (shift:3, rotation:5), I also have a test on increase shifted parameter and rotated parameter to watch the matching accuracy. As shown as below, the label S3R8 means shifted 3 pixels and rotated 8 degree. When I increase shifted parameter and rotated parameter, the matching accuracy remains almost unchanged. Maybe the increased size are too small compared to the deformation on the database, or we can not just increase the size to deal with the deformable finger knuckle.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/fkv3-rfn-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/fkv3-rfn-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+
+\subsection{2D Forefinger Knuckle Image of 3D Finger Knuckle Database}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/3d1s-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/3d1s-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+In terms of the database, the RFN-128-WRS and RFN-128-WS have very high matching accuracy. But the RFN-128-WRS is slightly better than RFN-128-WS.
+
+\vspace{10pt}
+Based on the best RFN-128-WRS model (shift:3, rotation:5), I also have a test on increase shifted parameter and rotated parameter to watch the matching accuracy. As shown as below, when I increase the these parameters, the matching can increase with these parameters increased.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/3d1s-rfn-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/3d1s-rfn-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+\subsection{Index Finger Knuckle of Hand Dorsal Image Database}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/hd-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/hd-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+However, the RFN-128-WRS model can get the highest matching accuracy on the former database, but at this database, it is not the first. The accuracy is similar with RFN-128-WS.
+
+\vspace{10pt}
+When I increased the shifted parameter from 3 to 5 pixels, and rotated parameter from 5 to 10 degree, the matching accuracy doesn't change anything from the ROC and CMC figure.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/hd-rfn-roc.png}
+	\end{subfigure}
+	\hspace{10pt}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Figures/hd-rfn-cmc.png}
+	\end{subfigure}
+\end{figure}
+
+
+\subsection{Conclusion}
+The RFN-128-WRS (whole image rotation and shift) can get the highest matching accuracy on Finger Knuckle V3 Database and 2D Image of 3D Finger Knuckle Database. And based on the RFN-128-WRS model, we increase the shifted parameter and increase the rotated parameter result in enhancing matching accuracy on the 2D Image of 3D Finger Knuckle Database. But for the deformable finger knuckle database, I increase these parameters seemly can not change the matching accuracy. Maybe the increased size are too small compared to the deformation on the database, or we can not just increase the size to deal with the deformable finger knuckle.
+
+\vspace{10pt}
+
+But as for Hand Dorsal Database, the RFN-128-WRS is not the first one on the matching accuracy. And also can say, it is slightly worse than RFN-128-WS model. The experiment with increase shifted and rotated parameter based on RFN-128-WRS is still running for matching matrix on the database. When the result is done, I will add the result figure.
+
+\vspace{10pt}
+DeConvRFN and EfficientNet loss is still not converged on the minimal point when I plot these ROC and CMC, so I let them keep training. After loss is converged, I will update these figures.
