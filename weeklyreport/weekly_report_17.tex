@@ -1,6 +1,7 @@
-\title{Weekly Report (16/04-22/04)} 
+% \title{Weekly Report (16/04-22/04)} 
+\title{Finger Knuckle Matching Algorithm}
 \author{ZHOU, Zhenyu}
-\date{\today}
+% \date{\today}
 \maketitle
 
 \section{Back Propagation of Image Blocks Translation \& Rotation}
@@ -20,53 +21,38 @@ As for the $L()$ function, it is used to get the sum of minimal MSE value of eac
 		L(F_1, F_2) = \sum_{m=1}^{M}\sum_{n=1}^{N}\mathop{min}\limits_{-Ws{\leq}w{\leq}Ws, -Hs{\leq}h{\leq}Hs, {-\Theta_{r}}{\leq}\theta{\leq}{\Theta_{r}}}{D_{w,h,\theta}(F_1B_{mn}, F_2B_{mn})}
 	\end{aligned}
 \end{equation}
-And the $D()$ is to calculate the MSE of two input feature maps, just as show as below.
+And the $D()$ is to calculate the MSE of two image blocks, the image block can be shifted and rotated for getting minimal local MSE, just as show as below.
 \begin{equation}
 	\begin{aligned}
-		D_{w,h,\theta}(F_1B_{mn}, F_2B_{mn}) = \frac{1}{|C_{w,h,\theta}|}\sum_{(x,y){\in}C_{w,h,\theta}}(F_1B_{mn}^{(w,h,\theta)}[x,y] - F_2B_{mn}[x,y])^2
+		D_{w,h,\theta}(F_1B_{mn}, F_2B_{mn}) = \frac{1}{|C_{w,h,\theta}B_{mn}|}\sum_{(x,y){\in}C_{w,h,\theta}B_{mn}}(F_1B_{mn}^{(w,h,\theta)}[x,y] - F_2B_{mn}[x,y])^2
 	\end{aligned}
 \end{equation}
-In terms of $C_{w,h,\theta}$, it represents the common region between two feature maps after shifting along x-axis with w, shifting along y-axis with h, and rotating with a. In this kind of situation, we assume that we shift and rotate anchor $w_{ap}, h_{ap}, a_{ap}$ with positive sample, and shift and rotate anchor $w_{an}, h_{an}, a_{an}$ with negative sample can get minimal MSE. Then the partial differentiation of the loss function with respect to each variable can be written as follows: 
+In terms of $C_{w,h,\theta}B_{mn}$, it represents the common region between two image blocks $B_{mn}$ after shifting along x-axis with w, shifting along y-axis with h, and rotating with $\theta$. In this kind of situation, we assume that we shift and rotate anchor $w_{ap}b_{mn}, h_{ap}b_{mn}, \theta_{ap}b_{mn}$ with positive sample, and shift and rotate anchor $w_{an}b_{mn}, h_{an}b_{mn}, \theta_{an}b_{mn}$ with negative sample can get local minimal MSE. Then the partial derivative of the loss function with respect to each variable can be written as follows: 
 \begin{equation}
 	\begin{aligned}
-		\frac{\partial{Loss}}{\partial{F_i^p}}=
+		\frac{\partial{IBTRTL}}{\partial{F_i^pB_{mn}}}=
 		\begin{cases}
-			0, if (x,y) \notin {C_{w_{ap}, h_{ap}, a_{ap}}}{\ }or{\ }Loss = 0 \\
-			\frac{-2(F_i^a[[x_{w_{ap}}, y_{h_{ap}}]*M(a_{ap})]-F_i^p[x,y])}{N|C_{w_{ap},h_{ap},a_{ap}}|},otherwise
+			0, if (x,y) \notin {C_{w_{ap}b_{mn}, h_{ap}b_{mn}, \theta_{ap}b_{mn}}}{\ }or{\ }IBTRTL = 0 \\
+			\frac{-2(F_i^aB_{mn}^{{w_{ap}b_{mn},h_{ap}b_{mn},\theta_{ap}b_{mn}}}[x, y]-F_i^pB_{mn}[x,y])}{N|C_{w_{ap}b_{mn},h_{ap}b_{mn},\theta_{ap}b_{mn}}|},otherwise
 		\end{cases}
 	\end{aligned}
 \end{equation}
-The $M(a_{ap})$ is the rotation matrix:
-
-$$\begin{bmatrix}
-	cos(rot(a_{ap})) & -sin(rot(a_{ap})) \\
-	sin(rot(a_{ap})) & cos(rot(a_{ap}))
-\end{bmatrix}$$
 
 \begin{equation}
 	\begin{aligned}
-		\frac{\partial{Loss}}{\partial{F_i^n}}=
+		\frac{\partial{IBTRTL}}{\partial{F_i^nB_{mn}}}=
 		\begin{cases}
-			0, if (x,y) \notin {C_{w_{an}, h_{an}, a_{an}}}{\ }or{\ }Loss = 0 \\
-			\frac{-2(F_i^a[[x_{w_{an}}, y_{h_{an}}]*M(a_{an})]-F_i^n[x,y])}{N|C_{w_{an},h_{an},a_{an}}|}, otherwise
+			0, if (x,y) \notin {C_{w_{an}b_{mn}, h_{an}b_{mn}, \theta_{an}b_{mn}}}{\ }or{\ }IBTRTL = 0 \\
+			\frac{-2(F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]-F_i^nB_{mn}[x,y])}{N|C_{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}|},otherwise
 		\end{cases}
 	\end{aligned}
 \end{equation}
-The $M(a_{an})$ is the rotation matrix:
 
-$$\begin{bmatrix}
-	cos(rot(a_{an})) & -sin(rot(a_{an})) \\
-	sin(rot(a_{an})) & cos(rot(a_{an}))
-\end{bmatrix}$$
+\vspace{10pt}
 
+The $F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]$ and $F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]$ is the result form image block $B_{mn}$ of $F_i^a$ shifting and rotating. When image blocks rotated, image blocks coordinate should be multiplied by rotation matrix, and then the pixel values for non-integer coordinates need to be interpolated to get new pixel values. Then the partial derivative of loss should also multiply the derivative of interpolation formula.
 
-\begin{equation}
-	\begin{aligned}
-		\frac{\partial{Loss}}{\partial{F_i^a[x,y]}} = -\frac{\partial{Loss}}{\partial{F_i^p[[x-w_{ap}, y-h_{ap}]*M(-a_{ap})]}} + \\
-		 \frac{\partial{Loss}}{\partial{F_i^n[[x-w_{an}, y-h_{an}]*M(-a_{an})]}}
-	\end{aligned}
-\end{equation}
-
+\dots
 
 \section{Experiments and Results}
 Firstly, all models are pre-trained on the Finger Knuckle V1 Database, and then fine-tuning on the rest database. On the Finger Knuckle V1 Database, it contains 512 subjects, and each of subjects has 5 finger knuckle samples. In this kind of situation, I use three samples of these five samples to pre-train my models.
@@ -317,6 +303,16 @@ The heat map here is a map, each channel in the picture represents the key point
 Different from pure Heatmap, Google's Heatmap refers to that the probability value of all points within a certain range from the target key points is 1. Outside Heatmap, use Offsets, that is, the offset to indicate the relationship between the pixel position within a certain range from the target key points and the target key points.
 
 \subsection{Next Week Plans}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lllll}
+    \cline{1-4}
+    \multicolumn{1}{c}{class name}   & \multicolumn{1}{c}{end-point} & \multicolumn{1}{c}{bifurcation} & \multicolumn{1}{c}{dot} &  \\ \cline{1-4}
+    \multicolumn{1}{c}{class number} & \multicolumn{1}{c}{24027}     & \multicolumn{1}{c}{6312}        & \multicolumn{1}{c}{492} &  \\
+    \multicolumn{1}{c}{image number} & \multicolumn{1}{c}{84}        & \multicolumn{1}{c}{}            & \multicolumn{1}{c}{}    &  \\ \cline{1-4}
+    \end{tabular}
+\end{table}
 
 Because our dataset is labelled by coordinates, for a quick test, we can firstly use the coordinate regression method. I have listed a several models can regress the key points coordinate:
 

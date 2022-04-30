@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2022.1.13)  22 APR 2022 22:14
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2022.1.13)  30 APR 2022 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -808,7 +808,7 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 11.52008pt on input line 19.
 \@quotelevel=\count432
 \@quotereset=\count433
- (./template.aux (./weeklyreport/weekly_report_17.aux))
+ (./template.aux (./weeklyreport/weekly_report_18.aux))
 \openout1 = `template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/zchmi/m/it on input line 19.
@@ -963,9 +963,9 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 19
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-\openout2 = `weeklyreport/weekly_report_17.aux'.
+\openout2 = `weeklyreport/weekly_report_18.aux'.
 
- (./weeklyreport/weekly_report_17.tex
+ (./weeklyreport/weekly_report_18.tex
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 19.91054pt on input line 4.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
@@ -980,65 +980,28 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 16.58891pt on input line 6.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 16.58891pt on input line 6.
-
-Overfull \hbox (19.21588pt too wide) detected at line 28
-[][]
- []
-
-[1
-
-
-] [2]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 77.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 79.
-File: Figures/ft/hd-roc.png Graphic file (type bmp)
-<Figures/ft/hd-roc.png>
- [3]
-File: Figures/ft/fkv3-roc.png Graphic file (type bmp)
-<Figures/ft/fkv3-roc.png>
-File: Figures/two-session-fkv3.png Graphic file (type bmp)
-<Figures/two-session-fkv3.png>
- [4]
-File: Figures/ft/3d1s-roc.png Graphic file (type bmp)
-<Figures/ft/3d1s-roc.png>
- [5]
-File: Figures/two-session-3d1s.png Graphic file (type bmp)
-<Figures/two-session-3d1s.png>
- [6]
-File: Figures/cross-hd-roc.png Graphic file (type bmp)
-<Figures/cross-hd-roc.png>
-File: Figures/cross-thu-roc.png Graphic file (type bmp)
-<Figures/cross-thu-roc.png>
- [7]
-File: Figures/challenging/one-session-forefinger.png Graphic file (type bmp)
-<Figures/challenging/one-session-forefinger.png>
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 241.
-File: Figures/challenging/one-session-middle.png Graphic file (type bmp)
-<Figures/challenging/one-session-middle.png>
-File: Figures/challenging/one-session-combine.png Graphic file (type bmp)
-<Figures/challenging/one-session-combine.png>
- [8]
-File: Figures/challenging/two-session-forefinger.png Graphic file (type bmp)
-<Figures/challenging/two-session-forefinger.png>
-File: Figures/challenging/two-session-middle.png Graphic file (type bmp)
-<Figures/challenging/two-session-middle.png>
-File: Figures/challenging/two-session-combine.png Graphic file (type bmp)
-<Figures/challenging/two-session-combine.png>
- [9] [10] [11]) [12] (./template.aux (./weeklyreport/weekly_report_17.aux))
+(Font)              scaled to size 13.82408pt on input line 7.
+File: Figures/ft/fkv3-roc-ibrs.png Graphic file (type bmp)
+<Figures/ft/fkv3-roc-ibrs.png>
+ [1
+
+
+]
+File: Figures/two-session-fkv3-ibrs.png Graphic file (type bmp)
+<Figures/two-session-fkv3-ibrs.png>
+) [2] [3] (./template.aux (./weeklyreport/weekly_report_18.aux))
 Package logreq Info: Writing requests to 'template.run.xml'.
 \openout1 = `template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18552 strings out of 477220
- 348101 string characters out of 5832722
- 1075816 words of memory out of 5000000
- 37984 multiletter control sequences out of 15000+600000
- 502555 words of font info for 97 fonts, out of 8000000 for 9000
+ 18477 strings out of 477220
+ 345717 string characters out of 5832722
+ 1072805 words of memory out of 5000000
+ 37923 multiletter control sequences out of 15000+600000
+ 490314 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 97i,15n,131p,838b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 97i,8n,131p,838b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.xdv (12 pages, 27340 bytes).
+Output written on template.xdv (3 pages, 4920 bytes).
