@@ -1,0 +1,193 @@
+\title{Weekly Report (07/05-13/05)} 
+\author{ZHOU, Zhenyu}
+\date{\today}
+\maketitle
+
+\section{Finger Knuckle Verification Neural Network}
+From my previous experiment, I use a lot of network modules from famous neural network, but the result is not very good when compare the RFNet. Then I think maybe tested model is too complex for the finger knuckle verification task, and will cause overfitting on the training dataset. So I have done a test to extract the most important part of the RFNet.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\linewidth}
+        \includegraphics[width=\linewidth]{Figures/ConvNet-VS-ResNet.png}
+    \end{subfigure}
+\end{figure}
+
+From the above picture, The ConvNetWithoutRES is the RFNet without residual block and keep the rest layer, and the ConvNetWithoutRESandConv3 is the RFNet without residual block and delete the conv3 layer. As for the ConvNetEfficientNet, it replaces the residual block of RFNet with MBblock of EfficientNet. We can get a conclusion that the RFNet performance is mainly resulted from the rest five convolution layers, because the performance is very close from the ROC figure. And then I replace the residual block on the RFNet with MBblock of EfficientNet, the performance can increase a little. Then I also try to increase finger knuckle verification accuracy in this direction. And I also try the Spatial Transformer Block to learn the tomography transformation matrix, but the result is not good as expected.
+
+\section{Finger Nail Blood Vessel Bifurcation Detection}
+
+As for the finger nail blood vessel key points detection, I just keep training the YOLOV5 model to detect the bifurcation and the angle. Then I change to deal with the finger knuckle neural network. Because the model gets more training iteration, the detection accuracy get higher.
+
+From the detection result, we can see that the detection position are right. In other words, the detected point are right, but it missed a lot of true positives on the image. At present, the model can detect more clear bifurcation on images, but can not detect unclear place.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/012_L_1_L_3.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/012_L_1_L_3.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/012_L_1_L_3.png}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{012\_L\_1\_L\_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/012_L_1_M_1.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/012_L_1_M_1.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/012_L_1_M_1.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{012\_L\_1\_M\_1}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/040_L_1_R_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/040_L_1_R_5.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/040_L_1_R_5.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{040\_L\_1\_R\_5}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/050_l_1_I_3.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/050_L_1_I_3.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/050_L_1_I_3.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{050\_l\_1\_I\_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_2.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_2.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_2.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_4.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_4.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_4.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_4}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_5.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_5.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_5}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_L_1.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_L_1.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_L_1.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_L\_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_R_2.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_R_2.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_R_2.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_R\_2}
+\end{figure}
+
+
+\section{Next Week Plans}
+1. Complete the finger knuckle performance comparison  with DoN network;
+2. Firstly, calculate the AP accuracy of the bifurcation detection to get the specified number. Then change the YOLOV5 model stride step (pooling factor) smaller to keep more information. If there are any changes, I will discuss them in advance.
+3. From the detected key-point of finger nail blood vessel, we can use the GNN to code the information of graph structure composed by key points.

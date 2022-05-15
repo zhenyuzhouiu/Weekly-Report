@@ -1,0 +1,17 @@
+\subsubsection{Index Finger Knuckle of Hand Dorsal Image Database}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.6\linewidth]{Figures/hd_roc_compare.jpg}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccl}
+    \cline{1-4}
+    Model            & Genuine & Imposter & EER     &  \\ \cline{1-4}
+    RFN-WRS          & 2848    & 2024928   & 0.02001 &  \\
+    RFN-WS           & 2848    & 2024928   & 0.01650 &  \\ \cline{1-4}
+    \end{tabular}
+\end{table}
+
+As for the experiment, the dataset totally contains 712 subjects, and I use the segmented Index finger knuckle as my dataset. And I fine-tuned my model on the first sample of each subject, and then use the rest four sample as the testing dataset. At the testing process, it has $712*4=2848$ genuine matching scores, and has $712*711*4=2024928$ imposter matching scores. The performance of RFN-128-WRS and RFN-128-WS is similar, but the RFN-128-WS is slightly better than RFN-128-WRS depend on the EER value.\textcolor{red}{ And we can get an information that the RFNet is better than the rest network in the ROC figure, including the FKNet.}

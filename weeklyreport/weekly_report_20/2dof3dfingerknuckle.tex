@@ -1,0 +1,40 @@
+\subsubsection{2D Samples of 3D Finger Knuckle Database}
+
+First experiment on the database is to use the one session 190 subjects image to fine-tune models and then to test on the another session 190 subjects. It has $190*6$ genuine matching scores and $190*189*6$ imposter matching scores. From the result, we can see that these RFN-128-WRS, RFN-128-WS, EfficientNet can get very high matching accuracy. Meanwhile, the RFN-WRS has the minimal EER value among these models. \textcolor{red}{As for the FKNet performance, it gets a very bad result on the 2D images of 3D finger knuckle. I think I have fully trained the FKNet. Maybe the model is overfitting on the training dataset.}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.6\linewidth}
+		\includegraphics[width=\linewidth]{Figures/3d1s-2d-fknet-roc.jpg}
+	\end{subfigure}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccl}
+    \cline{1-4}
+    Model            & Genuine & Imposter & EER     &  \\ \cline{1-4}
+    RFN-WRS          & 1140    & 215460   & 0.01053 &  \\
+    DeConvRFN-WRS    & 1140    & 215460   & 0.19299 &  \\
+    EfficientNet-WRS & 1140    & 215460   & 0.01754 &  \\
+    RFN-WS           & 1140    & 215460   & 0.02281 &  \\ 
+    \textcolor{red}{FKNet}              & \textcolor{red}{1140}                 & \textcolor{red}{215460}               & \textcolor{red}{0.2881}              &  \\\cline{1-4}
+    \end{tabular}
+\end{table}
+
+And then use the two session protocol. I use the rest samples of session1, and it has 191-228 subjects. In this kind of situation, the training dataset is too small. The two session protocol will test on the 190 subjects, these subjects can offer two session samples. Due to the training set is too small, so the matching performance is not very good. \textcolor{red}{As for the FKNet, it cannot fit on two session protocol due to classification task.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/two-session-3d1s.png}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccl}
+    \cline{1-4}
+    Model                & Genuine              & Imposter             & EER                  &  \\ \cline{1-4}
+    RFN-WS               & 1140                 & 215460               & 0.15978              &  \\
+    RFN-WRS              & 1140                 & 215460               & 0.21053              &  \\ \cline{1-4}
+    \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & 
+    \end{tabular}
+\end{table}

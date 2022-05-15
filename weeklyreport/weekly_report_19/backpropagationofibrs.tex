@@ -1,0 +1,54 @@
+\title{Weekly Report (30/04-06/05)} 
+\author{ZHOU, Zhenyu}
+\date{\today}
+\maketitle
+
+\section{Back Propagation of Image Blocks Translation \& Rotation}
+
+From the previous formula, it can be seen that $\frac{\partial{IBTRTL}}{\partial{F(I^a)}}$ can not be differentiable because the feature map is divided to image blocks result in different coefficient with different image blocks. But from below formula, the $\frac{\partial{IBTRTL}}{\partial{F(I^a)B_{mn}}}$ can be differentiable. The $B_{mn}$ is the image block, while $m$ represents the image block sequence number along the x-axis direction, $n$ is the image block sequence number along the y-axis direction. Then the pixels on the image blocks can be back propagation along neural network.
+
+\begin{equation}
+	\begin{aligned}
+		IBTRTL = \frac{1}{I}\sum_{i=1}^{I}[L(F(I_{i}^{a}),F(I_{i}^{p}))-L(F(I_{i}^{a}),F(I_{i}^{n})) + m]_{+}
+	\end{aligned}
+	\label{sumloss}
+\end{equation}
+
+As for the $L()$ function, it is used to get the sum of minimal MSE value of each image block that will be shifted and rotated in a range.
+\begin{equation}
+	\begin{aligned}
+		L(F_1, F_2) = \sum_{m=1}^{M}\sum_{n=1}^{N}\mathop{min}\limits_{-Ws{\leq}w{\leq}Ws, -Hs{\leq}h{\leq}Hs, {-\Theta_{r}}{\leq}\theta{\leq}{\Theta_{r}}}{D_{w,h,\theta}(F_1B_{mn}, F_2B_{mn})}
+	\end{aligned}
+\end{equation}
+And the $D()$ is to calculate the MSE of two image blocks, the image block can be shifted and rotated for getting minimal local MSE, just as show as below.
+\begin{equation}
+	\begin{aligned}
+		D_{w,h,\theta}(F_1B_{mn}, F_2B_{mn}) = \frac{1}{|C_{w,h,\theta}B_{mn}|}\sum_{(x,y){\in}C_{w,h,\theta}B_{mn}}(F_1B_{mn}^{(w,h,\theta)}[x,y] - F_2B_{mn}[x,y])^2
+	\end{aligned}
+\end{equation}
+In terms of $C_{w,h,\theta}B_{mn}$, it represents the common region between two image blocks $B_{mn}$ after shifting along x-axis with w, shifting along y-axis with h, and rotating with $\theta$. In this kind of situation, we assume that we shift and rotate anchor $w_{ap}b_{mn}, h_{ap}b_{mn}, \theta_{ap}b_{mn}$ with positive sample, and shift and rotate anchor $w_{an}b_{mn}, h_{an}b_{mn}, \theta_{an}b_{mn}$ with negative sample can get local minimal MSE. Then the partial derivative of the loss function with respect to each variable can be written as follows: 
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{IBTRTL}}{\partial{F_i^pB_{mn}}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{ap}b_{mn}, h_{ap}b_{mn}, \theta_{ap}b_{mn}}}{\ }or{\ }IBTRTL = 0 \\
+			\frac{-2(F_i^aB_{mn}^{{w_{ap}b_{mn},h_{ap}b_{mn},\theta_{ap}b_{mn}}}[x, y]-F_i^pB_{mn}[x,y])}{N|C_{w_{ap}b_{mn},h_{ap}b_{mn},\theta_{ap}b_{mn}}|},otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{IBTRTL}}{\partial{F_i^nB_{mn}}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{an}b_{mn}, h_{an}b_{mn}, \theta_{an}b_{mn}}}{\ }or{\ }IBTRTL = 0 \\
+			\frac{-2(F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]-F_i^nB_{mn}[x,y])}{N|C_{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}|},otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+
+\vspace{10pt}
+
+The $F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]$ and $F_i^aB_{mn}^{{w_{an}b_{mn},h_{an}b_{mn},\theta_{an}b_{mn}}}[x, y]$ is the result form image block $B_{mn}$ of $F_i^a$ shifting and rotating. When image blocks rotated, image blocks coordinate should be multiplied by rotation matrix, and then the pixel values for non-integer coordinates need to be interpolated to get new pixel values. Then the partial derivative of loss should also multiply the derivative of interpolation formula.
+
+\dots

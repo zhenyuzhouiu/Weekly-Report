@@ -1,0 +1,63 @@
+% \title{Weekly Report (07/05-13/05)} 
+% \author{ZHOU, Zhenyu}
+% \date{\today}
+% \maketitle
+\title{Finger Knuckle Verification}
+\maketitle
+
+\section{Back Propagation of Image Translation and Rotation}
+
+Because I just add rotation on the feature maps based on the soft shifted triplet loss function (Liu, Yang, and Ajay Kumar. "Contactless palm-print identification using deeply learned residual features." IEEE Transactions on Biometrics, Behavior, and Identity Science 2.2 (2020): 172-181.). So my back propagation process is similar with it.
+
+\vspace{10pt}
+
+Because the loss is still use the triplet loss function, so the loss equation can be written as Equation \ref{sumloss}.
+
+\begin{equation}
+	\begin{aligned}
+		Loss = \frac{1}{N}\sum_{i}^{N}[L(F(I_{i}^{a}),F(I_{i}^{p}))-L(F(I_{i}^{a}),F(I_{i}^{m})) + m]_{+}
+	\end{aligned}
+	\label{sumloss}
+\end{equation}
+
+As for the $L()$ function, it is used to calculate the minimal value after shifting and rotating.
+\begin{equation}
+	\begin{aligned}
+		L(F_1, F_2) = \mathop{min}\limits_{-Ws{\leq}w{\leq}Ws, -Hs{\leq}h{\leq}Hs, {-\Theta}{\leq}\theta{\leq}{\Theta}}{D_{w,h,\theta}(F_1, F_2)}
+	\end{aligned}
+\end{equation}
+And the $D()$ is to calculate the MSE of two input feature maps, just as show as below.
+\begin{equation}
+	\begin{aligned}
+		D_{w,h,\theta}(F_1, F_2) = \frac{1}{|C_{w,h,\theta}|}\sum_{(x,y){\in}C_{w,h,\theta}}(F_1^{(w,h,\theta)}[x,y] - F_2[x,y])^2
+	\end{aligned}
+\end{equation}
+In terms of $C_{w,h,\theta}$, it represents the common region between two feature maps after shifting along x-axis with w, shifting along y-axis with h, and rotating with a. In this kind of situation, we assume that we shift and rotate anchor $w_{ap}, h_{ap}, \theta_{ap}$ with positive sample, and shift and rotate anchor $w_{an}, h_{an}, \theta_{an}$ with negative sample can get minimal MSE. Then the partial differentiation of the loss function with respect to each variable can be written as follows: 
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^p}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{ap}, h_{ap}, \theta_{ap}}}{\ }or{\ }Loss = 0 \\
+			\frac{-2(F_i^a[[x_{w_{ap}}, y_{h_{ap}}]*M(\theta_{ap})]-F_i^p[x,y])}{N|C_{w_{ap},h_{ap},\theta_{ap}}|},otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+The $M(\theta_{ap})$ is the rotation matrix.
+
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^n}}=
+		\begin{cases}
+			0, if (x,y) \notin {C_{w_{an}, h_{an}, \theta_{an}}}{\ }or{\ }Loss = 0 \\
+			\frac{-2(F_i^a[[x_{w_{an}}, y_{h_{an}}]*M(\theta_{an})]-F_i^n[x,y])}{N|C_{w_{an},h_{an},a_{an}}|}, otherwise
+		\end{cases}
+	\end{aligned}
+\end{equation}
+
+As for the $F_i^a[x,y]$ derivation, because we shift and rotate the anchor in the above formula, we can inversely shift and rotate the positive and negative input feature.
+\begin{equation}
+	\begin{aligned}
+		\frac{\partial{Loss}}{\partial{F_i^a[x,y]}} = -\frac{\partial{Loss}}{\partial{F_i^p[[x-w_{ap}, y-h_{ap}]*M(-\theta_{ap})]}} + \\
+		 \frac{\partial{Loss}}{\partial{F_i^n[[x-w_{an}, y-h_{an}]*M(-\theta_{an})]}}
+	\end{aligned}
+\end{equation}

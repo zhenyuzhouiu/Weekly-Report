@@ -1,0 +1,5 @@
+\section{Experiments and Results}
+Firstly, all models are pre-trained on the Finger Knuckle V1 Database, and then fine-tuning on the rest database. On the Finger Knuckle V1 Database, it contains 512 subjects, and each of subjects has 5 finger knuckle samples. In this kind of situation, I use three samples of these five samples to pre-train my models.
+
+\vspace{10pt}
+I also continue to train the DeConvRFN (change the RFN-128 convolution layer with deformable convolution) and EfficientNet, the loss converged to the local minimal point. As for the EfficientNet, I change the original EfficientNet-B0 to fit my application. It has 9 stages in totally, the 9th stage is classification task with FC layer, so I replace it with convolution layer for output feature maps. Meanwhile, I delete the stage7 and stage8, and change stage3 and stage4 with stride 1.

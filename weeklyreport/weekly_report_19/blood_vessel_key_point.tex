@@ -1,0 +1,187 @@
+\section{\textcolor{red}{Finger Nail Blood Vessel Bifurcation Detection}}
+
+\textcolor{red}{As for the finger nail blood vessel key points detection, I firstly just detect the bifurcation. I use the changed YOLOV5 model to detect the bifurcation location and angle at the same time. It has totally 84 labelled images, I split data 1/10 as the testing data and 9/10 as the training data. And each class have how many labels in the data are listed on the table.}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lllll}
+    \cline{1-4}
+    \multicolumn{1}{c}{class name}   & \multicolumn{1}{c}{end-point} & \multicolumn{1}{c}{bifurcation} & \multicolumn{1}{c}{dot} &  \\ \cline{1-4}
+    \multicolumn{1}{c}{class number} & \multicolumn{1}{c}{24027}     & \multicolumn{1}{c}{6312}        & \multicolumn{1}{c}{492} &  \\
+    \multicolumn{1}{c}{image number} & \multicolumn{1}{c}{84}        & \multicolumn{1}{c}{}            & \multicolumn{1}{c}{}    &  \\ \cline{1-4}
+    \end{tabular}
+\end{table}
+
+\textcolor{red}{For avoiding image compression, I change the input image size to the model as 1600x1600 while the original image size is 1920x1080. And I change the mosaic probability to 0.3 for avoiding the splicing of four pictures into one picture, object loss multiply 100 for  increasing the loss of detection the right bifurcation. And I also make the image scale operation to scale up to 2.5, and scale down to 0.75. The rest hyperparameters are set by default. The prediction results are listed by image format.}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/012_L_1_L_3.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/012_L_1_L_3.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/012_L_1_L_3.png}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{012\_L\_1\_L\_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/012_L_1_M_1.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/012_L_1_M_1.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/012_L_1_M_1.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{012\_L\_1\_M\_1}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/040_L_1_R_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/040_L_1_R_5.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/040_L_1_R_5.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{040\_L\_1\_R\_5}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/050_l_1_I_3.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/050_L_1_I_3.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/050_L_1_I_3.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{050\_l\_1\_I\_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_2.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_2.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_2.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_4.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_4.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_4.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_4}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_I_5.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_I_5.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_5}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_L_1.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_L_1.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_L_1.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_L\_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_R_2.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    % \begin{subfigure}[b]{1\linewidth}
+    %     \includegraphics[width=\linewidth]{Figures/key-point/detecion/052_L_1_R_2.png}
+    %     \caption{Detection}
+    % \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection_cls0.1/052_L_1_R_2.png}
+        \caption{Detection cls0.1}
+    \end{subfigure}
+    \caption{052\_L\_1\_R\_2}
+\end{figure}
+
+
+\textcolor{red}{From the detection result, we can see that the detection position are right. In other words, the detected point are right, but it missed a lot of true positives on the image. At present, the model can detect more clear bifurcation on images, but can not detect unclear place.}
+
+\section{\textcolor{red}{Next Week Plans}}
+\textcolor{red}{1. As for the protocol, change the code to choose the minimal value when compare A and B to deal with the A-B and B-A matching scores are different. Firstly, complete the protocol experiment result with RFNet without trying other model.\\
+3. The YOLOV5 model is still need to continue to train for get the minimal loss. And need to deal with increasing detection accuracy on some relative ambiguities place}
