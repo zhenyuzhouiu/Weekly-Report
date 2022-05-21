@@ -1,0 +1,38 @@
+\title{Weekly Report (14/05-20/05)} 
+\author{ZHOU, Zhenyu}
+\date{\today}
+\maketitle
+
+\section{Finger Knuckle Verification Neural Network}
+Because I think Spatial Transformer Network \cite{jaderberg2015spatial} can learn the homograph transformation matrix automatically, therefore, I continue to use STNet module on the RFNet. I also change the STNet module place on the RFNet, directly transform input image or tranform feature maps and so on. But the result is still bad compare to RFNet. And I also try to output binary feature map, and then use the hamming distance as the loss function. As for the threshold, it can learn from the feature map and then use sigmoid function to guarantee the threshold is between [0, 1]. I also try to use the same threshold to binary all channels of feature maps, and also try to use different threshold for different channels of feature map. However, the loss cannot drop with back propagation result in a bad result, as shown below.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\linewidth}
+        \includegraphics[width=\linewidth]{Figures/weekly_report_21/STNet-Binary-ConvNet-RFN-VS.png}
+    \end{subfigure}
+\end{figure}
+
+And I have checked the transformation matrix learned by the STNet module, and used it to affine the input images. I have found that all the images seems transformed with a same affine matrix, as shown below. But it can automatically cut the background information by learning. Meanwhile, I also draw the distribution of genuine scores and imposter scores to check.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/weekly_report_21/Net_STNet.png}    
+\end{figure}
+I also compare the distribution of genuine matching scores and imposter matching scores from RFNet and STNet-RFNet (the model uses the STNet module). Just as same as the ROC curve, the STNet-RFNet cannot push the genuine distribution and imposter distribution, so that the curve is below the diagonal of the coordinate axis.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{Figures/weekly_report_21/rfn.png}
+    \end{subfigure}    
+    \begin{subfigure}[b]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{Figures/weekly_report_21/convnetefficientstnetbinaryconvnet-hamming.png}
+    \end{subfigure}  
+\end{figure}
+
+
+
+
+\section{Next Week Plans}
+1. Start to write a first version of Contactless Finger Knuckle Verification;\\
+2. Firstly, calculate the AP accuracy of the bifurcation detection to get the specified number. Then change the YOLOV5 model stride step (pooling factor) smaller to keep more information. If there are any changes, I will discuss them in advance. \textcolor{red}{(The task is left over from last week.)}

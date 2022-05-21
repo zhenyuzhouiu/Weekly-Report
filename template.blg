@@ -1,9 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'template.blg'
-[55] biber:340> INFO - === Fri May 13, 2022, 23:25:08
-[65] Biber.pm:418> INFO - Reading 'template.bcf'
-[112] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[121] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
-[121] bbl.pm:757> INFO - Output to template.bbl
-[122] Biber.pm:130> WARN - The file 'template.bcf' does not contain any citations!
-[122] Biber.pm:132> INFO - WARNINGS: 1
+[56] biber:340> INFO - === Sat May 21, 2022, 02:20:34
+[66] Biber.pm:418> INFO - Reading 'template.bcf'
+[115] Biber.pm:972> INFO - Found 1 citekeys in bib section 0
+[125] Biber.pm:4383> INFO - Processing section 0
+[133] Biber.pm:4574> INFO - Looking for bibtex file 'reference.bib' for section 0
+[134] bibtex.pm:1713> INFO - LaTeX decoding ...
+[138] bibtex.pm:1518> INFO - Found BibTeX data source 'reference.bib'
+[168] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[169] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[169] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[169] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[170] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
+[171] bbl.pm:757> INFO - Output to template.bbl

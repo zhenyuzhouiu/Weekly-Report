@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2022.5.6)  13 MAY 2022 23:27
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2022.5.6)  21 MAY 2022 02:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,77 +671,77 @@ Package: moredefs 2001/08/31 v1.8 more defining commands (Frankenstein's brain)
 \nc@toks@a=\toks37
 \c@IncludeDepth=\count433
 ) (/usr/share/texlive/texmf-dist/tex/latex/frankenstein/tag.sto)
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 21.
-LaTeX Font Info:    Trying to load font information for T1+XCharter-TLF on input line 21.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 22.
+LaTeX Font Info:    Trying to load font information for T1+XCharter-TLF on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/xcharter/T1XCharter-TLF.fd
 File: T1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-TLF.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 21.
+(Font)              scaled to size 11.52008pt on input line 22.
 \@quotelevel=\count434
 \@quotereset=\count435
  (./template.aux)
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/zchmi/m/it on input line 21.
-LaTeX Font Info:    Trying to load font information for OML+zchmi on input line 21.
+LaTeX Font Info:    Checking defaults for OML/zchmi/m/it on input line 22.
+LaTeX Font Info:    Trying to load font information for OML+zchmi on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/xcharter/omlzchmi.fd
 File: omlzchmi.fd 2019/11/21 Fontinst v1.933 font definitions for OML/zchmi.
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 21.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 22.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    ... okay on input line 22.
 
-Package chemgreek Info: Activating mapping `newtx' on line 21.
+Package chemgreek Info: Activating mapping `newtx' on line 22.
 
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 21.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -793,109 +793,112 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'template.bbl' found.
  (./template.bbl)
-Package biblatex Info: Reference section=0 on input line 21.
-Package biblatex Info: Reference segment=0 on input line 21.
+Package biblatex Info: Reference section=0 on input line 22.
+Package biblatex Info: Reference segment=0 on input line 22.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (./weeklyreport/weekly_report_20/workload.tex
+ (./weeklyreport/weekly_report_21/backpropagationofibrs.tex
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 19.91054pt on input line 4.
+(Font)              scaled to size 19.91054pt on input line 3.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 4.
-LaTeX Font Info:    Trying to load font information for OT1+XCharter-TLF on input line 4.
+(Font)              scaled to size 13.82408pt on input line 3.
+LaTeX Font Info:    Trying to load font information for OT1+XCharter-TLF on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/xcharter/OT1XCharter-TLF.fd
 File: OT1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for OT1/XCharter-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 4.
+(Font)              scaled to size 13.82408pt on input line 3.
 LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.08006pt on input line 4.
+(Font)              scaled to size 10.08006pt on input line 3.
 LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 7.58405pt on input line 4.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 4.
+(Font)              scaled to size 7.58405pt on input line 3.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 4.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 4.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 16.58891pt on input line 6.
+(Font)              scaled to size 16.58891pt on input line 5.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 16.58891pt on input line 6.
+(Font)              scaled to size 16.58891pt on input line 5.
 
-Overfull \hbox (9.13403pt too wide) in paragraph at lines 6--6
-[]\T1/XCharter-TLF/b/n/17.28 Finger Knuckle Ver-i-fi-ca-tion Neu-ral Net-work 
+Overfull \hbox (6.6622pt too wide) in paragraph at lines 5--5
+[]\T1/XCharter-TLF/b/n/17.28 Back Prop-a-ga-tion of Im-age Trans-la-tion and
  []
 
-File: Figures/ConvNet-VS-ResNet.png Graphic file (type bmp)
-<Figures/ConvNet-VS-ResNet.png>
+LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 13.
+LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 8.44806pt on input line 13.
+LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 6.33604pt on input line 13.
 [1
 
-]
-File: Figures/key-point/labels/012_L_1_L_3.png Graphic file (type bmp)
-<Figures/key-point/labels/012_L_1_L_3.png>
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 28.
-File: Figures/key-point/detection_cls0.1/012_L_1_L_3.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/012_L_1_L_3.png>
- [2]
-File: Figures/key-point/labels/012_L_1_M_1.png Graphic file (type bmp)
-<Figures/key-point/labels/012_L_1_M_1.png>
-File: Figures/key-point/detection_cls0.1/012_L_1_M_1.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/012_L_1_M_1.png>
+]) (./weeklyreport/weekly_report_21/experimentsandresults.tex) (./weeklyreport/weekly_report_21/fingerknucklev3.tex [2]
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 13.82408pt on input line 1.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 11.52008pt on input line 2.
+File: Figures/fknet/fkv3-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/fkv3-roc_compare_new.eps>
  [3]
-File: Figures/key-point/labels/040_L_1_R_5.png Graphic file (type bmp)
-<Figures/key-point/labels/040_L_1_R_5.png>
-File: Figures/key-point/detection_cls0.1/040_L_1_R_5.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/040_L_1_R_5.png>
- [4]
-File: Figures/key-point/labels/050_l_1_I_3.png Graphic file (type bmp)
-<Figures/key-point/labels/050_l_1_I_3.png>
-File: Figures/key-point/detection_cls0.1/050_L_1_I_3.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/050_L_1_I_3.png>
+File: Figures/fknet/two-fkv3-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/two-fkv3-roc_compare_new.eps>
+) (./weeklyreport/weekly_report_21/indexfingerofhd.tex
+File: Figures/fknet/hd-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/hd-roc_compare_new.eps>
+ [4]) (./weeklyreport/weekly_report_21/2dof3dfingerknuckle.tex
+File: Figures/fknet/3d1s-2d-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/3d1s-2d-roc_compare_new.eps>
  [5]
-File: Figures/key-point/labels/052_L_1_I_2.png Graphic file (type bmp)
-<Figures/key-point/labels/052_L_1_I_2.png>
-File: Figures/key-point/detection_cls0.1/052_L_1_I_2.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/052_L_1_I_2.png>
- [6]
-File: Figures/key-point/labels/052_L_1_I_4.png Graphic file (type bmp)
-<Figures/key-point/labels/052_L_1_I_4.png>
-File: Figures/key-point/detection_cls0.1/052_L_1_I_4.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/052_L_1_I_4.png>
+File: Figures/fknet/two-3d1s-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/two-3d1s-roc_compare_new.eps>
+) (./weeklyreport/weekly_report_21/crossdb.tex [6]
+File: Figures/fknet/cross-hd-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/cross-hd-roc_compare_new.eps>
+File: Figures/fknet/cross-thu-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/cross-thu-roc_compare_new.eps>
  [7]
-File: Figures/key-point/labels/052_L_1_I_5.png Graphic file (type bmp)
-<Figures/key-point/labels/052_L_1_I_5.png>
-File: Figures/key-point/detection_cls0.1/052_L_1_I_5.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/052_L_1_I_5.png>
+File: Figures/challenging/one-session-forefinger.png Graphic file (type bmp)
+<Figures/challenging/one-session-forefinger.png>
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 10.51207pt on input line 36.
+File: Figures/challenging/one-session-middle.png Graphic file (type bmp)
+<Figures/challenging/one-session-middle.png>
+File: Figures/challenging/one-session-combine.png Graphic file (type bmp)
+<Figures/challenging/one-session-combine.png>
  [8]
-File: Figures/key-point/labels/052_L_1_L_1.png Graphic file (type bmp)
-<Figures/key-point/labels/052_L_1_L_1.png>
-File: Figures/key-point/detection_cls0.1/052_L_1_L_1.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/052_L_1_L_1.png>
- [9]
-File: Figures/key-point/labels/052_L_1_R_2.png Graphic file (type bmp)
-<Figures/key-point/labels/052_L_1_R_2.png>
-File: Figures/key-point/detection_cls0.1/052_L_1_R_2.png Graphic file (type bmp)
-<Figures/key-point/detection_cls0.1/052_L_1_R_2.png>
- [10]) [11] [12] (./template.aux)
+File: Figures/challenging/two-session-forefinger.png Graphic file (type bmp)
+<Figures/challenging/two-session-forefinger.png>
+File: Figures/challenging/two-session-middle.png Graphic file (type bmp)
+<Figures/challenging/two-session-middle.png>
+File: Figures/challenging/two-session-combine.png Graphic file (type bmp)
+<Figures/challenging/two-session-combine.png>
+ [9]) (./weeklyreport/weekly_report_21/3dof3dfingerknuckle.tex [10]
+File: Figures/fknet/3d1s3d-roc_compare_new.eps Graphic file (type eps)
+<Figures/fknet/3d1s3d-roc_compare_new.eps>
+) (./reference.tex
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+) [11] (./template.aux)
 Package logreq Info: Writing requests to 'template.run.xml'.
 \openout1 = `template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20618 strings out of 476191
- 414275 string characters out of 5812073
- 1101397 words of memory out of 5000000
- 41090 multiletter control sequences out of 15000+600000
- 523688 words of font info for 60 fonts, out of 8000000 for 9000
+ 20835 strings out of 476191
+ 417677 string characters out of 5812073
+ 1106500 words of memory out of 5000000
+ 41286 multiletter control sequences out of 15000+600000
+ 555954 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 86i,7n,131p,992b,850s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,15n,131p,895b,4861s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.xdv (12 pages, 12308 bytes).
+Output written on template.xdv (11 pages, 26716 bytes).

@@ -16,5 +16,48 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{liu2020contactless}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=621013bf54d3546375ad71f17f020b5b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb6a64cf20a5b21db872c9ca0d491ed9}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ajay},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \strng{fullhash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \strng{bibnamehash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \strng{authorbibnamehash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \strng{authornamehash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \strng{authorfullhash}{35a8a9ba3ef5184d82f3165da03ffa5f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Biometrics, Behavior, and Identity Science}
+      \field{number}{2}
+      \field{title}{Contactless palmprint identification using deeply learned residual features}
+      \field{volume}{2}
+      \field{year}{2020}
+      \field{pages}{172\bibrangedash 181}
+      \range{pages}{10}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
