@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2022.5.6)  21 MAY 2022 02:20
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2022.5.4)  28 MAY 2022 01:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/zhenyuzhou/Documents/Weekly-report/LaTeXTemplates_university-school-laboratory-report_v4.0/template.tex
-(/home/zhenyuzhou/Documents/Weekly-report/LaTeXTemplates_university-school-laboratory-report_v4.0/template.tex
+**/home/zhenyuzhou/Desktop/Weekly-Report/template.tex
+(/home/zhenyuzhou/Desktop/Weekly-Report/template.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (./CSUniSchoolLabReport.cls
 Document Class: CSUniSchoolLabReport 2022/03/21 Creodocs University/School Laboratory Report Class v4.0
@@ -797,7 +797,7 @@ Package biblatex Info: Reference section=0 on input line 22.
 Package biblatex Info: Reference segment=0 on input line 22.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (./weeklyreport/weekly_report_21/backpropagationofibrs.tex
+ (./weeklyreport/weekly_report_22/backpropagationofibrs.tex
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 19.91054pt on input line 3.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
@@ -841,64 +841,75 @@ LaTeX Font Info:    Font shape `OT1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 6.33604pt on input line 13.
 [1
 
-]) (./weeklyreport/weekly_report_21/experimentsandresults.tex) (./weeklyreport/weekly_report_21/fingerknucklev3.tex [2]
+]) (./weeklyreport/weekly_report_22/experimentsandresults.tex) (./weeklyreport/weekly_report_22/fingerknucklev3.tex [2]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 13.82408pt on input line 1.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 11.52008pt on input line 2.
 File: Figures/fknet/fkv3-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/fkv3-roc_compare_new.eps>
+File: Figures/fknet/fkv3-cmc.eps Graphic file (type eps)
+<Figures/fknet/fkv3-cmc.eps>
  [3]
 File: Figures/fknet/two-fkv3-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/two-fkv3-roc_compare_new.eps>
-) (./weeklyreport/weekly_report_21/indexfingerofhd.tex
+ [4]) (./weeklyreport/weekly_report_22/indexfingerofhd.tex
 File: Figures/fknet/hd-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/hd-roc_compare_new.eps>
- [4]) (./weeklyreport/weekly_report_21/2dof3dfingerknuckle.tex
+File: Figures/fknet/hd-cmc.eps Graphic file (type eps)
+<Figures/fknet/hd-cmc.eps>
+ [5]) (./weeklyreport/weekly_report_22/2dof3dfingerknuckle.tex [6]
 File: Figures/fknet/3d1s-2d-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/3d1s-2d-roc_compare_new.eps>
- [5]
+File: Figures/fknet/3d1s-2d-cmc.eps Graphic file (type eps)
+<Figures/fknet/3d1s-2d-cmc.eps>
+ [7]
 File: Figures/fknet/two-3d1s-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/two-3d1s-roc_compare_new.eps>
-) (./weeklyreport/weekly_report_21/crossdb.tex [6]
+) (./weeklyreport/weekly_report_22/crossdb.tex [8]
 File: Figures/fknet/cross-hd-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/cross-hd-roc_compare_new.eps>
+File: Figures/fknet/cross-hd-cmc.eps Graphic file (type eps)
+<Figures/fknet/cross-hd-cmc.eps>
+ [9]
 File: Figures/fknet/cross-thu-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/cross-thu-roc_compare_new.eps>
- [7]
+File: Figures/fknet/cross-thu-cmc.eps Graphic file (type eps)
+<Figures/fknet/cross-thu-cmc.eps>
+ [10] [11]
 File: Figures/challenging/one-session-forefinger.png Graphic file (type bmp)
 <Figures/challenging/one-session-forefinger.png>
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 36.
+(Font)              scaled to size 10.51207pt on input line 42.
 File: Figures/challenging/one-session-middle.png Graphic file (type bmp)
 <Figures/challenging/one-session-middle.png>
 File: Figures/challenging/one-session-combine.png Graphic file (type bmp)
 <Figures/challenging/one-session-combine.png>
- [8]
+ [12]
 File: Figures/challenging/two-session-forefinger.png Graphic file (type bmp)
 <Figures/challenging/two-session-forefinger.png>
 File: Figures/challenging/two-session-middle.png Graphic file (type bmp)
 <Figures/challenging/two-session-middle.png>
 File: Figures/challenging/two-session-combine.png Graphic file (type bmp)
 <Figures/challenging/two-session-combine.png>
- [9]) (./weeklyreport/weekly_report_21/3dof3dfingerknuckle.tex [10]
+ [13]) (./weeklyreport/weekly_report_22/3dof3dfingerknuckle.tex
 File: Figures/fknet/3d1s3d-roc_compare_new.eps Graphic file (type eps)
 <Figures/fknet/3d1s3d-roc_compare_new.eps>
-) (./reference.tex
+) (./reference.tex [14]
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
 (Font)              scaled to size 11.52008pt on input line 3.
-) [11] (./template.aux)
+) [15] (./template.aux)
 Package logreq Info: Writing requests to 'template.run.xml'.
 \openout1 = `template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20835 strings out of 476191
- 417677 string characters out of 5812073
- 1106500 words of memory out of 5000000
- 41286 multiletter control sequences out of 15000+600000
+ 20860 strings out of 476191
+ 418258 string characters out of 5812073
+ 1106504 words of memory out of 5000000
+ 41306 multiletter control sequences out of 15000+600000
  555954 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 86i,15n,131p,895b,4861s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,15n,131p,923b,4861s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.xdv (11 pages, 26716 bytes).
+Output written on template.xdv (15 pages, 29008 bytes).
