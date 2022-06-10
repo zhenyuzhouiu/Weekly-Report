@@ -1,38 +1,128 @@
-\title{Weekly Report (14/05-20/05)} 
+\title{Finger Nail Blood Vessel Key Points Detection} 
 \author{ZHOU, Zhenyu}
 \date{\today}
 \maketitle
 
-\section{Finger Knuckle Verification Neural Network}
-Because I think Spatial Transformer Network \cite{jaderberg2015spatial} can learn the homograph transformation matrix automatically, therefore, I continue to use STNet module on the RFNet. I also change the STNet module place on the RFNet, directly transform input image or tranform feature maps and so on. But the result is still bad compare to RFNet. And I also try to output binary feature map, and then use the hamming distance as the loss function. As for the threshold, it can learn from the feature map and then use sigmoid function to guarantee the threshold is between [0, 1]. I also try to use the same threshold to binary all channels of feature maps, and also try to use different threshold for different channels of feature map. However, the loss cannot drop with back propagation result in a bad result, as shown below.
+\title{Weekly Report (07/05-13/05)} 
+\author{ZHOU, Zhenyu}
+\date{\today}
+\maketitle
+
+
+\section{Finger Nail Blood Vessel Key Points Detection}
+
+Last week, I trained the YOLOV5 based on the only bifurcation detection model to detect bifurcation and ending at the same time. I have split the total 84 images to 75 images and 9 images, the former treated as training set, and the latter treated as testing set. In this kind of situation, I don't have the validation set. 
+
+
+\begin{table}[H]
+    \begin{tabular}{ccccl}
+    \cline{1-4}
+    \multicolumn{4}{c}{Only   Bifurcation Detection Model}                                  &  \\ \cline{1-4}
+    Class                        & NO. Positive         & Confidence\_Threshold & IOU0.5/AP &  \\ \cline{1-4}
+    \multirow{2}{*}{Bifurcation} & \multirow{2}{*}{953} & 0.25                  & 24.053    &  \\
+                                 &                      & 0.1                   & 35.021    &  \\ \cline{1-4}
+    \end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+    \begin{tabular}{ccccl}
+    \cline{1-4}
+    \multicolumn{4}{c}{Bifurcation   and Ending Detection}                                   &  \\ \cline{1-4}
+    Class                        & No. Positive          & Confidence\_Threshold & IOU0.5/AP &  \\ \cline{1-4}
+    \multirow{2}{*}{Bifurcation} & \multirow{2}{*}{953}  & 0.25                  & 23.3      &  \\
+                                 &                       & 0.1                   & 33.299    &  \\ \cline{1-4}
+    \multirow{2}{*}{Ending}      & \multirow{2}{*}{2948} & 0.25                  & 66.415    &  \\
+                                 &                       & 0.1                   & 71.955    &  \\ \cline{1-4}
+    \end{tabular}
+    \end{table}
+
+
+From the above AP matrix, the bifurcation detection accuracy is very low. On the "Only Bifurcation Detection Model", the maximum AP only can get 35.021\%. When the model continue to learn the ending point, the AP will drop about 2\%. Although I have used the Focal Loss to balance the loss from unbalance positive sample from different classes.
+
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\linewidth}
-        \includegraphics[width=\linewidth]{Figures/weekly_report_21/STNet-Binary-ConvNet-RFN-VS.png}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/012_L_1_L_3.png}
+        \caption{Labelled image}
     \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/012_L_1_L_3.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{012\_L\_1\_L\_3}
 \end{figure}
 
-And I have checked the transformation matrix learned by the STNet module, and used it to affine the input images. I have found that all the images seems transformed with a same affine matrix, as shown below. But it can automatically cut the background information by learning. Meanwhile, I also draw the distribution of genuine scores and imposter scores to check.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{Figures/weekly_report_21/Net_STNet.png}    
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/040_L_1_R_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/040_L_1_R_5.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{040\_L\_1\_R\_5}
 \end{figure}
-I also compare the distribution of genuine matching scores and imposter matching scores from RFNet and STNet-RFNet (the model uses the STNet module). Just as same as the ROC curve, the STNet-RFNet cannot push the genuine distribution and imposter distribution, so that the curve is below the diagonal of the coordinate axis.
+
+
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.4\linewidth}
-        \includegraphics[width=\linewidth]{Figures/weekly_report_21/rfn.png}
-    \end{subfigure}    
-    \begin{subfigure}[b]{0.4\linewidth}
-        \includegraphics[width=\linewidth]{Figures/weekly_report_21/convnetefficientstnetbinaryconvnet-hamming.png}
-    \end{subfigure}  
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_4.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/052_L_1_I_4.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_4}
 \end{figure}
 
 
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_I_5.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/052_L_1_I_5.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{052\_L\_1\_I\_5}
+\end{figure}
 
-\section{Next Week Plans}
-1. Start to write a first version of Contactless Finger Knuckle Verification;\\
-2. Firstly, calculate the AP accuracy of the bifurcation detection to get the specified number. Then change the YOLOV5 model stride step (pooling factor) smaller to keep more information. If there are any changes, I will discuss them in advance. \textcolor{red}{(The task is left over from last week.)}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_L_1.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/052_L_1_L_1.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{052\_L\_1\_L\_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/labels/052_L_1_R_2.png}
+        \caption{Labelled image}
+    \end{subfigure}
+    \begin{subfigure}[b]{1\linewidth}
+        \includegraphics[width=\linewidth]{Figures/key-point/detection/052_L_1_R_2.jpg}
+        \caption{Detection result}
+    \end{subfigure}
+    \caption{052\_L\_1\_R\_2}
+\end{figure}
