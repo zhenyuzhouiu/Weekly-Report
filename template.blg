@@ -1,9 +1,15 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'template.blg'
-[117] biber-MSWIN32:340> INFO - === 
-[158] Biber.pm:415> INFO - Reading 'template.bcf'
-[290] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[296] Utils.pm:395> WARN - The file 'template.bcf' does not contain any citations!
-[306] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
-[306] bbl.pm:757> INFO - Output to template.bbl
-[306] Biber.pm:128> INFO - WARNINGS: 1
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'template.blg'
+[50] biber:340> INFO - === Sat Jun 11, 2022, 00:01:10
+[59] Biber.pm:418> INFO - Reading 'template.bcf'
+[105] Biber.pm:972> INFO - Found 3 citekeys in bib section 0
+[116] Biber.pm:4383> INFO - Processing section 0
+[123] Biber.pm:4574> INFO - Looking for bibtex file 'reference.bib' for section 0
+[123] bibtex.pm:1713> INFO - LaTeX decoding ...
+[129] bibtex.pm:1518> INFO - Found BibTeX data source 'reference.bib'
+[163] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[163] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[163] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[163] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[166] bbl.pm:654> INFO - Writing 'template.bbl' with encoding 'UTF-8'
+[167] bbl.pm:757> INFO - Output to template.bbl
